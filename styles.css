@@ -1,3 +1,104 @@
 body {
   font-family: 'Bitter', serif;
 }
+#nav {
+  height: 80px;
+  border-bottom: 2px;
+  border-bottom-color: #D8D8D8;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+#search-bar {
+  font-size: 25px;
+  color: #D8D8D8;
+  border: 2px #D8D8D8;
+  border-style: solid;
+  height: 50px;
+  width: 640px;
+  padding-left: 10px;
+}
+#logo {
+  font-size: 48px;
+  color: #F7A519;
+  margin-top: -10px;
+}
+
+/*today section*/
+#today-section {
+  height: 420px;
+  background-color: #F8E71C;
+  text-align: center;
+  padding-bottom: 55px;
+}
+#today {
+  font-size: 15px;
+  color: #ffffff;
+}
+#city-name {
+  font-size: 35px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+#today-degrees {
+  font-size: 180px;
+  color: #ffffff;
+  margin-top: -25px;
+  margin-bottom: 55px;
+}
+/*.underline {
+  text-decoration: underline;
+}*/
+
+/*future weather section*/
+#future-section {
+  height:200px;
+}
+.future-icon {
+  height: 98px;
+}
+.future-degrees {
+  font-size: 85px;
+  color: #ffffff;
+}
+.future-date-box {
+  background-color: #ffffff;
+  text-align: center;
+}
+#future-box-1 {
+  background-color: #FFD54F;
+  text-align: center;
+  padding: 25px 0px 5px 0px;
+/*  padding-bottom: 5px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 25px;*/
+}
+#future-date-1 {
+  font-size: 45px;
+  color: #FFD54F;
+}
+#future-box-2 {
+  background-color: #FFB74D;
+  text-align: center;
+  padding-bottom: 5px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 25px;
+}
+#future-date-2 {
+  font-size: 45px;
+  color: #FFB74D;
+}
+#future-box-3 {
+  background-color: #FFA000;
+  text-align: center;
+  padding-bottom: 5px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 25px;
+}
+#future-date-3 {
+  font-size: 45px;
+  color: #FFA000;
+}
+

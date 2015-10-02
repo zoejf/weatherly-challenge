@@ -1,12 +1,13 @@
 angular.module('weatherly', [])
 
   .controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
-    $scope.city = [];
+    $scope.search = [];
     $scope.searchCity = function  () {
-      console.log($scope.city);
-      var url = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=' + $scope.city +'&type=accurate&cnt=4&units=metric';
+      console.log($scope.search);
+      var url = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=' + $scope.search +'&type=accurate&cnt=4&units=metric';
       $http.get(url)
         .then(function (response) {
+          $scope.search = '';
           $scope.city = response.data;
           $scope.showIcon = function (index) {
             if (response.data.list[index].weather[0].id <= 299) {

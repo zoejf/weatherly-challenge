@@ -22,28 +22,40 @@
 <body ng-controller="MainCtrl">
   <div class="container-fluid">
     <div class="row" id="nav">
-      <div class="col-xs-2 col-xs-offset-1">
-        <br>
-        Weatherly
+      <div class="col-xs-3">
+        <div id="logo">Weatherly</div>
       </div>
       <div class="col-xs-9">
-        <br>
-        <form ng-submit="searchCity()" class="form-inline">
-          <div class="form-group">
-            <input type="text" ng-model="city" class="form-control" placeholder="Search by City" autofocus>
-          </div>
-          <input type="submit" value="Search" class="btn btn-warning">
+        <form ng-submit="searchCity()" >
+          <input id="search-bar" type="text" ng-model="search" placeholder="Search by City">
+          <!-- change to submit on clicking return - how? -->
+          <input type="submit">
         </form>
       </div>
     </div>
-    <div class="row" id="current-weather">
-      <div class="col-xs-12" style="text-align:center">
-        <!-- current weather section -->
-        <br><br>
-        <p>Today</p>
-        <h1>{{city.city.name}}</h1>
-        <br>
-        <div ng-switch="showIcon(0)">
+    <div class="row" id="today-section">
+      <!-- current weather section -->
+      <br><br>
+      <span id="today">Today</span>
+      <br>
+      <span id="city-name">{{city.city.name}}</span>
+      <div ng-switch="showIcon(0)">
+        <div ng-switch-when="thunderstorm"> <img ng-src="images/thunderstorm.png" class="today-icon"> </div>
+        <div ng-switch-when="drizzle"> <img ng-src="images/drizzle.png" class="today-icon"> </div>
+        <div ng-switch-when="rain"> <img ng-src="images/rain.png" class="today-icon"> </div>
+        <div ng-switch-when="snow"> <img ng-src="images/snow.png" class="today-icon"> </div>
+        <div ng-switch-when="atmosphere"> <img ng-src="images/atmosphere.png" class="today-icon"> </div>
+        <div ng-switch-when="clouds"> <img ng-src="images/clouds.png" class="today-icon"> </div>
+        <div ng-switch-when="extreme"> <img ng-src="images/atmosphere.png" class="today-icon"> </div>
+        <div ng-switch-when="additional"> <img ng-src="images/atmosphere.png" class="today-icon"> </div>
+        <p ng-switch-default></p>
+      </div>
+      <div id="today-degrees">&nbsp;{{city.list[0].deg}}<span class="underline">&#176;</span></div >
+    </div>
+    <div class="row" id="future-weather">
+      <div class="col-xs-4" id="future-box-1">
+        <!-- future day 1 -->
+        <div ng-switch="showIcon(1)" class="future-icon">
           <div ng-switch-when="thunderstorm"> <img ng-src="images/thunderstorm.png"> </div>
           <div ng-switch-when="drizzle"> <img ng-src="images/drizzle.png"> </div>
           <div ng-switch-when="rain"> <img ng-src="images/rain.png"> </div>
@@ -54,93 +66,51 @@
           <div ng-switch-when="additional"> <img ng-src="images/atmosphere.png"> </div>
           <p ng-switch-default></p>
         </div>
-        <h2>{{city.list[0].deg}}&#176;</h2>
-        <br><br>
-        <hr>
-      </div>
-    </div>
-    <div class="row" id="future-weather">
-      <div class="col-xs-4">
-        <!-- future day 1 -->
-        <div class="row">
-          <div class="col-xs-12" style="text-align:center">
-            <!-- weather -->
-            <div ng-switch="showIcon(1)">
-              <div ng-switch-when="thunderstorm"> <img ng-src="images/thunderstorm.png"> </div>
-              <div ng-switch-when="drizzle"> <img ng-src="images/drizzle.png"> </div>
-              <div ng-switch-when="rain"> <img ng-src="images/rain.png"> </div>
-              <div ng-switch-when="snow"> <img ng-src="images/snow.png"> </div>
-              <div ng-switch-when="atmosphere"> <img ng-src="images/atmosphere.png"> </div>
-              <div ng-switch-when="clouds"> <img ng-src="images/clouds.png"> </div>
-              <div ng-switch-when="extreme"> <img ng-src="images/atmosphere.png"> </div>
-              <div ng-switch-when="additional"> <img ng-src="images/atmosphere.png"> </div>
-              <p ng-switch-default></p>
-            </div>
-            <h3>{{city.list[1].deg}}&#176;</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12" style="text-align:center">
-            <!-- DAY MONTH DATE -->
-            <h3 style="text-align:center">{{city.list[1].dt}}</h3>
-          </div>
+        <span class="future-degrees">{{city.list[1].deg}}<span class="underline">&#176;</span></span>
+        <div class="future-date-box">
+          <!-- DAY MONTH DATE -->
+          <p id="future-date-1">{{city.list[1].dt}}</p>
         </div>
       </div>
-      <div class="col-xs-4">
+      <div class="col-xs-4" id="future-box-2">
         <!-- future day 2 -->
-        <div class="row">
-          <div class="col-xs-12" style="text-align:center">
-            <!-- weather -->
-            <div ng-switch="showIcon(2)">
-              <div ng-switch-when="thunderstorm"> <img ng-src="images/thunderstorm.png"> </div>
-              <div ng-switch-when="drizzle"> <img ng-src="images/drizzle.png"> </div>
-              <div ng-switch-when="rain"> <img ng-src="images/rain.png"> </div>
-              <div ng-switch-when="snow"> <img ng-src="images/snow.png"> </div>
-              <div ng-switch-when="atmosphere"> <img ng-src="images/atmosphere.png"> </div>
-              <div ng-switch-when="clouds"> <img ng-src="images/clouds.png"> </div>
-              <div ng-switch-when="extreme"> <img ng-src="images/atmosphere.png"> </div>
-              <div ng-switch-when="additional"> <img ng-src="images/atmosphere.png"> </div>
-              <p ng-switch-default></p>
-            </div>
-            <h3>{{city.list[2].deg}}&#176;</h3>
-          </div>
+        <div ng-switch="showIcon(2)" class="future-icon">
+          <div ng-switch-when="thunderstorm"> <img ng-src="images/thunderstorm.png"> </div>
+          <div ng-switch-when="drizzle"> <img ng-src="images/drizzle.png"> </div>
+          <div ng-switch-when="rain"> <img ng-src="images/rain.png"> </div>
+          <div ng-switch-when="snow"> <img ng-src="images/snow.png"> </div>
+          <div ng-switch-when="atmosphere"> <img ng-src="images/atmosphere.png"> </div>
+          <div ng-switch-when="clouds"> <img ng-src="images/clouds.png"> </div>
+          <div ng-switch-when="extreme"> <img ng-src="images/atmosphere.png"> </div>
+          <div ng-switch-when="additional"> <img ng-src="images/atmosphere.png"> </div>
+          <p ng-switch-default></p>
         </div>
-        <div class="row">
-          <div class="col-xs-12" style="text-align:center">
-            <!-- DAY MONTH DATE -->
-            <h3 style="text-align:center">{{city.list[2].dt}}</h3>
-          </div>
+        <span class="future-degrees">{{city.list[2].deg}}<span class="underline">&#176;</span></span>
+        <div class="future-date-box">
+          <!-- DAY MONTH DATE -->
+          <p id="future-date-2">{{city.list[2].dt}}</p>
         </div>
       </div>
-      <div class="col-xs-4">
+      <div class="col-xs-4" id="future-box-3">
         <!-- future day 3 -->
-        <div class="row">
-          <div class="col-xs-12" style="text-align:center">
-            <!-- weather -->
-            <div ng-switch="showIcon(3)">
-              <div ng-switch-when="thunderstorm"> <img ng-src="images/thunderstorm.png"> </div>
-              <div ng-switch-when="drizzle"> <img ng-src="images/drizzle.png"> </div>
-              <div ng-switch-when="rain"> <img ng-src="images/rain.png"> </div>
-              <div ng-switch-when="snow"> <img ng-src="images/snow.png"> </div>
-              <div ng-switch-when="atmosphere"> <img ng-src="images/atmosphere.png"> </div>
-              <div ng-switch-when="clouds"> <img ng-src="images/clouds.png"> </div>
-              <div ng-switch-when="extreme"> <img ng-src="images/atmosphere.png"> </div>
-              <div ng-switch-when="additional"> <img ng-src="images/atmosphere.png"> </div>
-              <p ng-switch-default></p>
-            </div>
-            <h3>{{city.list[3].deg}}&#176;</h3>
-          </div>
+        <div ng-switch="showIcon(3)" class="future-icon">
+          <div ng-switch-when="thunderstorm"> <img ng-src="images/thunderstorm.png"> </div>
+          <div ng-switch-when="drizzle"> <img ng-src="images/drizzle.png"> </div>
+          <div ng-switch-when="rain"> <img ng-src="images/rain.png"> </div>
+          <div ng-switch-when="snow"> <img ng-src="images/snow.png"> </div>
+          <div ng-switch-when="atmosphere"> <img ng-src="images/atmosphere.png"> </div>
+          <div ng-switch-when="clouds"> <img ng-src="images/clouds.png"> </div>
+          <div ng-switch-when="extreme"> <img ng-src="images/atmosphere.png"> </div>
+          <div ng-switch-when="additional"> <img ng-src="images/atmosphere.png"> </div>
+          <p ng-switch-default></p>
         </div>
-        <div class="row">
-          <div class="col-xs-12" style="text-align:center">
-            <!-- DAY MONTH DATE -->
-            <h3 style="text-align:center">{{city.list[3].dt}}</h3>
-          </div>
+        <span class="future-degrees">{{city.list[3].deg}}<span class="underline">&#176;</span></span>
+        <div class="future-date-box">
+          <!-- DAY MONTH DATE -->
+          <p id="future-date-3">{{city.list[3].dt}}</p>
         </div>
       </div>
     </div>
-    <br><br>
-    <hr>
   </div>
 
 </body>
