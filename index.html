@@ -43,16 +43,17 @@
         <p>Today</p>
         <h1>{{city.city.name}}</h1>
         <br>
-        <p>{{city.list[0].weather[0].id}}</p>
-        <p ng-show="showIcon(0)"></p>
-        <!-- <p ng-show="{{city.list[0].weather[0].id}} <= '299'">thunderstorm</p>
-        <p ng-show="({{city.list[0].weather[0].id}} >= '300') || ({{city.list[0].weather[0].id}} <= '399')">drizzle</p>
-        <p ng-show="({{city.list[0].weather[0].id}} >= '400') || ({{city.list[0].weather[0].id}} <= '599')">rain</p>
-        <p ng-show="({{city.list[0].weather[0].id}} >= '600') || ({{city.list[0].weather[0].id}} <= '699')">snow</p>
-        <p ng-show="({{city.list[0].weather[0].id}} >= '700') || ({{city.list[0].weather[0].id}} <= '799')">atmosphere</p>
-        <p ng-show="({{city.list[0].weather[0].id}} >= '800') || ({{city.list[0].weather[0].id}} <= '899')">clouds</p>
-        <p ng-show="({{city.list[0].weather[0].id}} >= '900') || ({{city.list[0].weather[0].id}} <= '949')">extreme</p>
-        <p ng-show="({{city.list[0].weather[0].id}} >= '950'">additional</p> -->
+        <div ng-switch="showIcon(0)">
+          <div ng-switch-when="thunderstorm"> <img ng-src="images/thunderstorm.png"> </div>
+          <div ng-switch-when="drizzle"> <img ng-src="images/drizzle.png"> </div>
+          <div ng-switch-when="rain"> <img ng-src="images/rain.png"> </div>
+          <div ng-switch-when="snow"> <img ng-src="images/snow.png"> </div>
+          <div ng-switch-when="atmosphere"> <img ng-src="images/atmosphere.png"> </div>
+          <div ng-switch-when="clouds"> <img ng-src="images/clouds.png"> </div>
+          <div ng-switch-when="extreme"> <img ng-src="images/atmosphere.png"> </div>
+          <div ng-switch-when="additional"> <img ng-src="images/atmosphere.png"> </div>
+          <p ng-switch-default></p>
+        </div>
         <h2>{{city.list[0].deg}}&#176;</h2>
         <br><br>
         <hr>
@@ -64,7 +65,17 @@
         <div class="row">
           <div class="col-xs-12" style="text-align:center">
             <!-- weather -->
-            <p>[icon: {{city.list[1].weather[0].id}}]</p>
+            <div ng-switch="showIcon(1)">
+              <div ng-switch-when="thunderstorm"> <img ng-src="images/thunderstorm.png"> </div>
+              <div ng-switch-when="drizzle"> <img ng-src="images/drizzle.png"> </div>
+              <div ng-switch-when="rain"> <img ng-src="images/rain.png"> </div>
+              <div ng-switch-when="snow"> <img ng-src="images/snow.png"> </div>
+              <div ng-switch-when="atmosphere"> <img ng-src="images/atmosphere.png"> </div>
+              <div ng-switch-when="clouds"> <img ng-src="images/clouds.png"> </div>
+              <div ng-switch-when="extreme"> <img ng-src="images/atmosphere.png"> </div>
+              <div ng-switch-when="additional"> <img ng-src="images/atmosphere.png"> </div>
+              <p ng-switch-default></p>
+            </div>
             <h3>{{city.list[1].deg}}&#176;</h3>
           </div>
         </div>
@@ -80,7 +91,17 @@
         <div class="row">
           <div class="col-xs-12" style="text-align:center">
             <!-- weather -->
-            <p>[icon: {{city.list[2].weather[0].id}}]</p>
+            <div ng-switch="showIcon(2)">
+              <div ng-switch-when="thunderstorm"> <img ng-src="images/thunderstorm.png"> </div>
+              <div ng-switch-when="drizzle"> <img ng-src="images/drizzle.png"> </div>
+              <div ng-switch-when="rain"> <img ng-src="images/rain.png"> </div>
+              <div ng-switch-when="snow"> <img ng-src="images/snow.png"> </div>
+              <div ng-switch-when="atmosphere"> <img ng-src="images/atmosphere.png"> </div>
+              <div ng-switch-when="clouds"> <img ng-src="images/clouds.png"> </div>
+              <div ng-switch-when="extreme"> <img ng-src="images/atmosphere.png"> </div>
+              <div ng-switch-when="additional"> <img ng-src="images/atmosphere.png"> </div>
+              <p ng-switch-default></p>
+            </div>
             <h3>{{city.list[2].deg}}&#176;</h3>
           </div>
         </div>
@@ -96,7 +117,17 @@
         <div class="row">
           <div class="col-xs-12" style="text-align:center">
             <!-- weather -->
-            <p>[icon: {{city.list[3].weather[0].id}}]</p>
+            <div ng-switch="showIcon(3)">
+              <div ng-switch-when="thunderstorm"> <img ng-src="images/thunderstorm.png"> </div>
+              <div ng-switch-when="drizzle"> <img ng-src="images/drizzle.png"> </div>
+              <div ng-switch-when="rain"> <img ng-src="images/rain.png"> </div>
+              <div ng-switch-when="snow"> <img ng-src="images/snow.png"> </div>
+              <div ng-switch-when="atmosphere"> <img ng-src="images/atmosphere.png"> </div>
+              <div ng-switch-when="clouds"> <img ng-src="images/clouds.png"> </div>
+              <div ng-switch-when="extreme"> <img ng-src="images/atmosphere.png"> </div>
+              <div ng-switch-when="additional"> <img ng-src="images/atmosphere.png"> </div>
+              <p ng-switch-default></p>
+            </div>
             <h3>{{city.list[3].deg}}&#176;</h3>
           </div>
         </div>
