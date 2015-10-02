@@ -1,8 +1,7 @@
 angular.module('weatherly', [])
-
   .controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
-    $scope.search = [];
-    $scope.searchCity = function  () {
+    // $scope.search = [];
+    var weatherSearch = function  () {
       console.log($scope.search);
       var url = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=' + $scope.search +'&type=accurate&cnt=4&units=metric';
       $http.get(url)
@@ -29,5 +28,12 @@ angular.module('weatherly', [])
             };
           };
         });
+    };
+    if ($scope.search === undefined) {
+      $scope.search = 'San Francisco';
+      weatherSearch();
+    };
+    $scope.searchCity = function () {
+      weatherSearch();
     };
   }]);
