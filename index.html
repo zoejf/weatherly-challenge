@@ -5,7 +5,12 @@
   <meta name ="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- google fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+  <!-- custom css -->
+  <!-- customized styles -->
+  <link rel="stylesheet" type="text/css" href="styles.css">
 
   <title>Weatherly</title>
 
@@ -38,8 +43,17 @@
         <p>Today</p>
         <h1>{{city.city.name}}</h1>
         <br>
-        <p>[icon: {{city.list[0].weather[0].id}}]</p>
-        <h2>{{city.list[0].main.temp}}</h2>
+        <p>{{city.list[0].weather[0].id}}</p>
+        <p ng-show="showIcon(0)"></p>
+        <!-- <p ng-show="{{city.list[0].weather[0].id}} <= '299'">thunderstorm</p>
+        <p ng-show="({{city.list[0].weather[0].id}} >= '300') || ({{city.list[0].weather[0].id}} <= '399')">drizzle</p>
+        <p ng-show="({{city.list[0].weather[0].id}} >= '400') || ({{city.list[0].weather[0].id}} <= '599')">rain</p>
+        <p ng-show="({{city.list[0].weather[0].id}} >= '600') || ({{city.list[0].weather[0].id}} <= '699')">snow</p>
+        <p ng-show="({{city.list[0].weather[0].id}} >= '700') || ({{city.list[0].weather[0].id}} <= '799')">atmosphere</p>
+        <p ng-show="({{city.list[0].weather[0].id}} >= '800') || ({{city.list[0].weather[0].id}} <= '899')">clouds</p>
+        <p ng-show="({{city.list[0].weather[0].id}} >= '900') || ({{city.list[0].weather[0].id}} <= '949')">extreme</p>
+        <p ng-show="({{city.list[0].weather[0].id}} >= '950'">additional</p> -->
+        <h2>{{city.list[0].deg}}&#176;</h2>
         <br><br>
         <hr>
       </div>
@@ -51,13 +65,13 @@
           <div class="col-xs-12" style="text-align:center">
             <!-- weather -->
             <p>[icon: {{city.list[1].weather[0].id}}]</p>
-            <h3>{{city.list[1].main.temp}}</h3>
+            <h3>{{city.list[1].deg}}&#176;</h3>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12" style="text-align:center">
             <!-- DAY MONTH DATE -->
-            <h3 style="text-align:center">{{city.list[1].dt_txt}}</h3>
+            <h3 style="text-align:center">{{city.list[1].dt}}</h3>
           </div>
         </div>
       </div>
@@ -67,13 +81,13 @@
           <div class="col-xs-12" style="text-align:center">
             <!-- weather -->
             <p>[icon: {{city.list[2].weather[0].id}}]</p>
-            <h3>{{city.list[2].main.temp}}</h3>
+            <h3>{{city.list[2].deg}}&#176;</h3>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12" style="text-align:center">
             <!-- DAY MONTH DATE -->
-            <h3 style="text-align:center">{{city.list[2].dt_txt}}</h3>
+            <h3 style="text-align:center">{{city.list[2].dt}}</h3>
           </div>
         </div>
       </div>
@@ -83,13 +97,13 @@
           <div class="col-xs-12" style="text-align:center">
             <!-- weather -->
             <p>[icon: {{city.list[3].weather[0].id}}]</p>
-            <h3>{{city.list[3].main.temp}}</h3>
+            <h3>{{city.list[3].deg}}&#176;</h3>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12" style="text-align:center">
             <!-- DAY MONTH DATE -->
-            <h3 style="text-align:center">{{city.list[3].dt_txt}}</h3>
+            <h3 style="text-align:center">{{city.list[3].dt}}</h3>
           </div>
         </div>
       </div>

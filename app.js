@@ -4,11 +4,13 @@ angular.module('weatherly', [])
     $scope.city = [];
     $scope.searchCity = function  () {
       console.log($scope.city);
-      var url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + $scope.city +'&type=accurate&cnt=4&units=imperial';
+      var url = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=' + $scope.city +'&type=accurate&cnt=4&units=metric';
       $http.get(url)
         .then(function (response) {
-          console.log(response.data);
           $scope.city = response.data;
+          $scope.showIcon = function (index) {
+            console.log(response.data.list[index].weather[0].id);
+          };
         });
     };
   }]);
