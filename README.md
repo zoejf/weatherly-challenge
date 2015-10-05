@@ -1,5 +1,6 @@
 ##Weatherly 
 
+An Angular app using the OpenWeatherMap API
 by Zoe Foss, Oct 2015
 
 ####To Run Locally:
