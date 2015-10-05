@@ -3,11 +3,20 @@ angular.module('weatherly', [])
     // $scope.search = [];
     var weatherSearch = function  () {
       console.log($scope.search);
-      var url = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=' + $scope.search +'&type=accurate&cnt=4&units=metric';
+      var url = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=' + $scope.search +'&type=accurate&cnt=4';
       $http.get(url)
         .then(function (response) {
           $scope.search = '';
           $scope.city = response.data;
+          console.log(response.data);
+          var temp = response.data.list;
+          temp.forEach(function (part, index) {
+            console.log(temp[index]);
+            temp[index].temp.day = Math.round(temp[index].temp.day * (9/5) - 459.67); 
+            var date = new Date(temp[index].dt *1000);
+            document.write(date.toGMTString()+"<br>"+ date.toLocaleString());
+            temp[index].dt = date;
+          });
           $scope.showIcon = function (index) {
             if (response.data.list[index].weather[0].id <= 299) {
               return 'thunderstorm'
@@ -27,6 +36,8 @@ angular.module('weatherly', [])
               return 'additional'
             };
           };
+        }, function errorCallback(response, status) {
+          alert('No city found!');
         });
     };
     if ($scope.search === undefined) {

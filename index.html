@@ -50,7 +50,7 @@
         <div ng-switch-when="additional"> <img ng-src="images/atmosphere.png" class="today-icon"> </div>
         <p ng-switch-default></p>
       </div>
-      <div id="today-degrees">&nbsp;{{city.list[0].deg}}<span class="underline">&#176;</span></div >
+      <div id="today-degrees">&nbsp;{{city.list[0].temp.day}}<span class="underline">&#176;</span></div >
     </div>
     <div class="row" id="future-weather">
       <div class="col-xs-4" id="future-box-1">
@@ -66,7 +66,7 @@
           <div ng-switch-when="additional"> <img ng-src="images/atmosphere.png"> </div>
           <p ng-switch-default></p>
         </div>
-        <span class="future-degrees">{{city.list[1].deg}}<span class="underline">&#176;</span></span>
+        <span class="future-degrees">{{city.list[1].temp.day}}<span class="underline">&#176;</span></span>
         <div class="future-date-box">
           <!-- DAY MONTH DATE -->
           <p id="future-date-1">{{city.list[1].dt}}</p>
@@ -85,7 +85,7 @@
           <div ng-switch-when="additional"> <img ng-src="images/atmosphere.png"> </div>
           <p ng-switch-default></p>
         </div>
-        <span class="future-degrees">{{city.list[2].deg}}<span class="underline">&#176;</span></span>
+        <span class="future-degrees">{{city.list[2].temp.day}}<span class="underline">&#176;</span></span>
         <div class="future-date-box">
           <!-- DAY MONTH DATE -->
           <p id="future-date-2">{{city.list[2].dt}}</p>
@@ -104,7 +104,7 @@
           <div ng-switch-when="additional"> <img ng-src="images/atmosphere.png"> </div>
           <p ng-switch-default></p>
         </div>
-        <span class="future-degrees">{{city.list[3].deg}}<span class="underline">&#176;</span></span>
+        <span class="future-degrees">{{city.list[3].temp.day}}<span class="underline">&#176;</span></span>
         <div class="future-date-box">
           <!-- DAY MONTH DATE -->
           <p id="future-date-3">{{city.list[3].dt}}</p>
