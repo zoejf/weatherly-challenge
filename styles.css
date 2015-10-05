@@ -17,6 +17,12 @@ body {
   width: 640px;
   padding-left: 10px;
 }
+input#search-bar:focus {
+  color: #F7A519 !important;
+  border-color: #F7A519 !important;
+  outline: none !important;
+}
+
 #logo {
   font-size: 48px;
   color: #F7A519;
@@ -45,8 +51,17 @@ body {
   margin-top: -25px;
   margin-bottom: 55px;
 }
+.underline-lrg {
+  text-decoration: underline;
+  font-size: 120px;
+  margin-bottom: 20px;
+}
 
 /*future weather section*/
+.underline-sm {
+  text-decoration: underline;
+  font-size: 60px;
+}
 #future-section {
   height:200px;
 }
@@ -65,10 +80,6 @@ body {
   background-color: #FFD54F;
   text-align: center;
   padding: 25px 0px 5px 0px;
-/*  padding-bottom: 5px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 25px;*/
 }
 #future-date-1 {
   font-size: 45px;
