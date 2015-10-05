@@ -10,12 +10,17 @@ angular.module('weatherly', [])
           $scope.city = response.data;
           console.log(response.data);
           var temp = response.data.list;
+
+          weekdays = {1: "Mon", 2: "Tues", 3: "Wed", 4: "Thurs", 5: "Fri", 6: "Sat", 7: "Sun"};
+          month = {1: "Jan", 2: "Feb", 3: "Mar", 4: "Apr", 5: "May", 6: "Jun", 7: "Jul", 8: "Aug", 9: "Sept", 10: "Oct", 11: "Nov", 12: "Dec"};
+          $scope.day = [];
           temp.forEach(function (part, index) {
             console.log(temp[index]);
+            //convert temp from Kelvin to Far
             temp[index].temp.day = Math.round(temp[index].temp.day * (9/5) - 459.67); 
             var date = new Date(temp[index].dt *1000);
-            document.write(date.toGMTString()+"<br>"+ date.toLocaleString());
-            temp[index].dt = date;
+            date = weekdays[date.getDay()] + " " + month[date.getMonth()] + " " + date.getDate();
+            $scope.day.push( date.toUpperCase());
           });
           $scope.showIcon = function (index) {
             if (response.data.list[index].weather[0].id <= 299) {
@@ -37,7 +42,7 @@ angular.module('weatherly', [])
             };
           };
         }, function errorCallback(response, status) {
-          alert('No city found!');
+          alert("Mayday! Mayday! The server is down");
         });
     };
     if ($scope.search === undefined) {
